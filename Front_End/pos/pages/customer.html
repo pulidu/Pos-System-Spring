@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management | POS PRO</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/customer-style.css">
+</head>
+<body>
+
+<!-- ================= Sidebar ================= -->
+<nav class="sidebar">
+    <div class="brand">
+        <i class="fas fa-cash-register"></i>
+        <span>POS System</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="../index.html">
+            <i class="fas fa-gauge-high"></i>
+            Dashboard
+        </a>
+
+        <a class="active" href="customer.html">
+            <i class="fas fa-user-group"></i>
+            Customers
+        </a>
+
+        <a href="item.html">
+            <i class="fas fa-boxes-stacked"></i>
+            Items
+        </a>
+
+        <a href="place-order.html">
+            <i class="fas fa-cart-shopping"></i>
+            Orders
+        </a>
+    </div>
+</nav>
+
+<!-- ================= Main Content ================= -->
+<main class="main-content">
+
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <div class="page-info">
+            <h1><i class="fas fa-user-gear"></i> Customer Management</h1>
+            <p>View and manage your client database</p>
+        </div>
+
+<!--        <div class="user-profile">-->
+<!--            <div class="status-dot"></div>-->
+<!--            <span><i class="fas fa-user-shield"></i> Admin</span>-->
+<!--            <div class="avatar">A</div>-->
+<!--        </div>-->
+    </header>
+
+    <!-- Dashboard Grid -->
+    <div class="dashboard-grid">
+
+        <!-- ========== Registration Form ========== -->
+        <section class="glass-card form-area">
+            <div class="card-header">
+                <i class="fas fa-user-plus"></i>
+                <h2>Registration</h2>
+            </div>
+
+            <form id="customer-form" onsubmit="return false;">
+
+                <div class="input-group">
+                    <label for="id"><i class="fas fa-id-badge"></i> Customer ID</label>
+                    <input type="text" id="id" placeholder="Add Customer ID">
+                </div>
+
+                <div class="input-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="name" placeholder="Add Customer Name">
+                </div>
+
+                <div class="input-group">
+                    <label for="address"><i class="fas fa-location-dot"></i> Address</label>
+                    <input type="text" id="address" placeholder="Add Customer Address">
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-add" onclick="saveCustomer()">
+                        <i class="fas fa-plus"></i> Add New
+                    </button>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-update" onclick="updateCustomer()">
+                            <i class="fas fa-pen"></i> Update
+                        </button>
+
+                        <button type="button" class="btn btn-delete" onclick="deleteCustomer()">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+
+                    <button type="button" class="btn btn-clear" onclick="clearCustomer()">
+                        <i class="fas fa-eraser"></i> Clear Fields
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- ========== Customer Table ========== -->
+        <section class="glass-card table-area">
+            <div class="card-header">
+                <i class="fas fa-address-book"></i>
+                <h2>Customer Database</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="customer-table">
+                    <thead>
+                    <tr>
+                        <th><i class="fas fa-id-badge"></i> ID</th>
+                        <th><i class="fas fa-user"></i> Full Name</th>
+                        <th><i class="fas fa-location-dot"></i> Address</th>
+                    </tr>
+                    </thead>
+                    <tbody id="customer-list">
+                    <!-- Data will load here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../js/customer-script.js"></script>
+
+</body>
+</html>
