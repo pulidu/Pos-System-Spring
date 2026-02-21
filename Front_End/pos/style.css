@@ -1,0 +1,149 @@
+/* ===============================
+   1. Variables & Reset
+================================= */
+
+:root {
+    --bg-deep: #000000;
+    --bg-card: #111111;
+    --accent-red: #e10600;
+    --accent-red-light: #ff2e2e;
+    --text-main: #ffffff;
+    --text-dim: #b3b3b3;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===============================
+   2. Layout
+================================= */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.welcome-text h1 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #ffffff, var(--accent-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+}
+
+/* ===============================
+   3. Card Grid
+================================= */
+
+.nav-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 50px 30px;
+    border-radius: 24px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    border-color: var(--accent-red);
+    box-shadow: 0 20px 40px rgba(225, 6, 0, 0.3);
+}
+
+/* Icon Box */
+
+.icon-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    background: rgba(225, 6, 0, 0.1);
+    color: var(--accent-red);
+    transition: 0.3s;
+}
+
+.card:hover .icon-box {
+    background: var(--accent-red);
+    color: #ffffff;
+}
+
+/* Text */
+
+.card h2 {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ===============================
+   4. Footer
+================================= */
+
+.footer {
+    position: fixed;
+    bottom: 30px;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+/* ===============================
+   5. Responsive
+================================= */
+
+@media (max-width: 992px) {
+    .nav-cards {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .welcome-text h1 {
+        font-size: 2.2rem;
+    }
+}
