@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Management | POS PRO</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/item-style.css">
+</head>
+<body>
+
+<!-- ================= Sidebar ================= -->
+<nav class="sidebar">
+    <div class="brand">
+        <div class="logo-icon">
+            <i class="fas fa-cash-register"></i>
+        </div>
+        <span>POS System</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="../index.html">
+            <i class="fas fa-gauge-high"></i>
+            Dashboard
+        </a>
+
+        <a href="customer.html">
+            <i class="fas fa-user-group"></i>
+            Customers
+        </a>
+
+        <a class="active" href="item.html">
+            <i class="fas fa-boxes-stacked"></i>
+            Items
+        </a>
+
+        <a href="place-order.html">
+            <i class="fas fa-cart-shopping"></i>
+            Orders
+        </a>
+    </div>
+</nav>
+
+<!-- ================= Main Content ================= -->
+<main class="main-content">
+
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <div class="title-section">
+            <h1><i class="fas fa-box-open"></i> Item Management</h1>
+            <p>Dashboard / Inventory Control</p>
+        </div>
+
+<!--        <div class="user-profile">-->
+<!--            <div class="user-info">-->
+<!--                <span class="name">-->
+<!--                    <i class="fas fa-user-shield"></i> Admin-->
+<!--                </span>-->
+<!--                <span class="status">-->
+<!--                    <i class="fas fa-circle-check"></i> Online-->
+<!--                </span>-->
+<!--            </div>-->
+<!--            <div class="avatar">A</div>-->
+<!--        </div>-->
+    </header>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-layout">
+
+        <!-- ========== Item Form ========== -->
+        <section class="glass-card form-container">
+            <div class="card-header">
+                <i class="fas fa-box-circle-check"></i>
+                <h2>Item Details</h2>
+            </div>
+
+            <form id="item-form" onsubmit="return false;">
+
+                <div class="input-group">
+                    <label><i class="fas fa-id-badge"></i> Item ID</label>
+                    <input type="text" id="id" placeholder="Add Item ID">
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-box"></i> Item Name</label>
+                    <input type="text" id="name" placeholder="Add Item Name">
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-layer-group"></i> Quantity</label>
+                    <input type="number" id="qty" placeholder="Add Quantity">
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-money-bill-wave"></i> Unit Price (LKR)</label>
+                    <input type="number" step="0.01" id="price" placeholder="0.00">
+                </div>
+
+                <div class="button-grid">
+                    <button type="button" class="btn btn-add" onclick="saveItem()">
+                        <i class="fas fa-plus"></i> Add Item
+                    </button>
+
+                    <button type="button" class="btn btn-update" onclick="updateItem()">
+                        <i class="fas fa-pen"></i> Update
+                    </button>
+
+                    <button type="button" class="btn btn-delete" onclick="deleteItem()">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+
+                    <button type="button" class="btn btn-clear" onclick="clearItem()">
+                        <i class="fas fa-eraser"></i> Clear
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- ========== Table Section ========== -->
+        <section class="glass-card table-container">
+            <div class="card-header">
+                <i class="fas fa-warehouse"></i>
+                <h2>Stock Overview</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="item-table">
+                    <thead>
+                    <tr>
+                        <th><i class="fas fa-id-badge"></i> ID</th>
+                        <th><i class="fas fa-box"></i> Item Name</th>
+                        <th><i class="fas fa-layer-group"></i> Qty</th>
+                        <th><i class="fas fa-money-bill-wave"></i> Unit Price</th>
+                    </tr>
+                    </thead>
+                    <tbody id="item-list">
+                    <!-- Dynamic data -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../js/item-script.js"></script>
+
+</body>
+</html>
